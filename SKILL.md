@@ -1,6 +1,6 @@
 ---
 name: 100mini-upload
-description: Use when publishing, sharing, uploading, or hosting an HTML page (single-file HTML or a static site as HTML/CSS/JS or .zip) as a shareable link, or when the user asks to "post to 100mini" / "生成分享链接" / "上传到 100mini" / "发布学习页面". Use to upload from the command line without a browser or login.
+description: Use when publishing, sharing, uploading, or hosting an HTML page (single-file HTML or a static site as HTML/CSS/JS or .zip) as a shareable link, or when the user asks to "post to 100mini" / "share link" / "upload to 100mini" / "publish learning page". Use to upload from the command line without a browser or login.
 ---
 
 # 100mini Upload
@@ -12,8 +12,8 @@ Publish HTML pages to 100mini (https://www.100mini.com) as a shareable link. Two
 ## When to Use
 
 - User asks to publish/share/upload an HTML page or make a shareable link for one
-- You built an HTML page (learning page, 学习页面) and need a URL to share
-- User wants to "上传到 100mini", "发布学习页面", "生成分享链接", "post to 100mini"
+- You built an HTML page (learning page) and need a URL to share
+- User wants to "upload to 100mini", "publish learning page", "share link", "post to 100mini"
 - Any script or automation needs temporary static hosting
 - Agent needs to upload pages on behalf of a logged-in user (use `--token`)
 
@@ -134,10 +134,10 @@ Failures — errors on stderr:
 - **ZIP needs an entry file:** the archive must contain `index.html` (or another `.html` at its root).
 - **5MB limit:** single file or unzipped total must stay under 5MB.
 - **Anonymous 7-day expiry:** anonymous pages are deleted automatically; use `--token` for permanent hosting.
-- **Missing title:** authenticated uploads require `--title`; blank title returns exit 1 with `标题不能为空`.
+- **Missing title:** authenticated uploads require `--title`; blank title returns exit 1 with "title is required".
 - **Invalid token:** returns exit 1 with `Invalid or expired API key`; check token hasn't been revoked.
-- **Points exhausted:** if beyond free quota and points < 10, returns exit 1 with `积分不足`; top up via the web UI.
-- **Server error messages are Chinese** (e.g. `仅支持 .html 或 .zip 文件`, `匿名上传已达今日上限`); relay them to the user verbatim or paraphrase.
+- **Points exhausted:** if beyond free quota and points < 10, returns exit 1 with "insufficient points"; top up via the web UI.
+- **Server error messages may be in Chinese** (e.g. "only .html or .zip files supported", "anonymous upload limit reached"); relay them to the user verbatim or paraphrase.
 
 ## Rate Limits
 
